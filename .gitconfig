@@ -1,0 +1,67 @@
+[user]
+	name = vectorquantized
+	email = vecquantized@gmail.com
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = green bold reverse
+    local = green bold
+    remote = green
+[color "diff"]
+    meta = blue bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = blue
+    changed = green
+    untracked = cyan
+[alias]
+    b = branch
+    com = "checkout master"
+    w = whatchanged
+    cm = commit
+    s = status
+    st = status -uno
+    dc = diff --cached
+    d = diff
+    co = checkout
+   lgf = log --format=full
+   lg = log --graph --pretty=format:'%Cred%h%Creset - %C(blue)%ae%Creset -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset %Cgreen(%an)%Creset' --abbrev-commit
+   lg20 = log --graph --pretty=format:'%Cred%h%Creset -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative -20
+   lgn = "!f() { git log --graph --pretty=format:'%Cred%H%Creset -%C(blue)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative $@ | git name-rev --stdin --name-only ; } ; f"
+   log1 = log --pretty=oneline --abbrev-commit --decorate
+    fup = fetch upstream master
+    up = fetch origin master
+    dft = diff-tree --name-only --no-commit-id -r
+[format]
+    pretty = format:%Cred%h%Creset - %Cgreen%an -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset
+    date = relative
+    pull = pull --rebase
+
+[core]
+	editor = /usr/bin/vim
+  #pager = less -+$LESS -FRSX
+  #pager = less -+$LESS -R
+	excludesfile = /Users/amehra2/.gitignore_global
+  pager = less -+FX
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/amehra2/.stCommitMsg
+[pager]
+	branch = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	ff = only
+
